@@ -1,0 +1,215 @@
+
+pong.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 1, 55
+  size: 128, 72
+  orig: 128, 72
+  offset: 0, 0
+  index: -1
+pong
+  rotate: false
+  xy: 1, 40
+  size: 53, 13
+  orig: 53, 13
+  offset: 0, 0
+  index: -1
+btnOptions
+  rotate: false
+  xy: 131, 117
+  size: 55, 10
+  orig: 55, 10
+  offset: 0, 0
+  index: -1
+btnOptionsOver
+  rotate: false
+  xy: 56, 43
+  size: 55, 10
+  orig: 55, 10
+  offset: 0, 0
+  index: -1
+btnQuit
+  rotate: false
+  xy: 131, 105
+  size: 55, 10
+  orig: 55, 10
+  offset: 0, 0
+  index: -1
+btnQuitOver
+  rotate: false
+  xy: 188, 117
+  size: 55, 10
+  orig: 55, 10
+  offset: 0, 0
+  index: -1
+btnStart
+  rotate: false
+  xy: 131, 93
+  size: 55, 10
+  orig: 55, 10
+  offset: 0, 0
+  index: -1
+btnStartOver
+  rotate: false
+  xy: 188, 105
+  size: 55, 10
+  orig: 55, 10
+  offset: 0, 0
+  index: -1
+btnEasy
+  rotate: false
+  xy: 131, 81
+  size: 54, 10
+  orig: 54, 10
+  offset: 0, 0
+  index: -1
+btnEasyOver
+  rotate: false
+  xy: 188, 93
+  size: 54, 10
+  orig: 54, 10
+  offset: 0, 0
+  index: -1
+btnHard
+  rotate: false
+  xy: 131, 69
+  size: 54, 10
+  orig: 54, 10
+  offset: 0, 0
+  index: -1
+btnHardOver
+  rotate: false
+  xy: 187, 81
+  size: 54, 10
+  orig: 54, 10
+  offset: 0, 0
+  index: -1
+btnNormal
+  rotate: false
+  xy: 131, 57
+  size: 54, 10
+  orig: 54, 10
+  offset: 0, 0
+  index: -1
+btnNormalOver
+  rotate: false
+  xy: 187, 69
+  size: 54, 10
+  orig: 54, 10
+  offset: 0, 0
+  index: -1
+lblSound
+  rotate: false
+  xy: 187, 58
+  size: 55, 9
+  orig: 55, 9
+  offset: 0, 0
+  index: -1
+continue
+  rotate: false
+  xy: 1, 11
+  size: 34, 27
+  orig: 34, 27
+  offset: 0, 0
+  index: -1
+resume
+  rotate: false
+  xy: 56, 31
+  size: 51, 10
+  orig: 51, 10
+  offset: 0, 0
+  index: -1
+resumeOver
+  rotate: false
+  xy: 131, 45
+  size: 51, 10
+  orig: 51, 10
+  offset: 0, 0
+  index: -1
+btnBack
+  rotate: false
+  xy: 187, 46
+  size: 43, 10
+  orig: 43, 10
+  offset: 0, 0
+  index: -1
+btnMenu
+  rotate: false
+  xy: 1, 2
+  size: 34, 7
+  orig: 34, 7
+  offset: 0, 0
+  index: -1
+btnBackOver
+  rotate: false
+  xy: 184, 34
+  size: 43, 10
+  orig: 43, 10
+  offset: 0, 0
+  index: -1
+btnMenuOver
+  rotate: false
+  xy: 37, 22
+  size: 34, 7
+  orig: 34, 7
+  offset: 0, 0
+  index: -1
+btnOff
+  rotate: false
+  xy: 37, 10
+  size: 27, 10
+  orig: 27, 10
+  offset: 0, 0
+  index: -1
+lblPlayer
+  rotate: false
+  xy: 37, 1
+  size: 25, 7
+  orig: 25, 7
+  offset: 0, 0
+  index: -1
+btnOffOver
+  rotate: false
+  xy: 73, 19
+  size: 27, 10
+  orig: 27, 10
+  offset: 0, 0
+  index: -1
+lblPongAI
+  rotate: false
+  xy: 64, 1
+  size: 25, 7
+  orig: 25, 7
+  offset: 0, 0
+  index: -1
+btnOn
+  rotate: false
+  xy: 232, 46
+  size: 20, 10
+  orig: 20, 10
+  offset: 0, 0
+  index: -1
+btnOnOver
+  rotate: false
+  xy: 229, 34
+  size: 20, 10
+  orig: 20, 10
+  offset: 0, 0
+  index: -1
+paddle
+  rotate: false
+  xy: 66, 10
+  size: 2, 10
+  orig: 2, 10
+  offset: 0, 0
+  index: -1
+ball
+  rotate: false
+  xy: 113, 51
+  size: 2, 2
+  orig: 2, 2
+  offset: 0, 0
+  index: -1
