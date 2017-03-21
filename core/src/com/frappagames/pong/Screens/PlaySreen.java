@@ -197,15 +197,15 @@ public class PlaySreen extends GameScreen {
             ball.setX(5);
             ballSpeed.x = -ballSpeed.x;
             Pong.playSound(game.loseSound);
-            game.aiScore++;
-            playerScoreLbl.setText(formatScore(game.aiScore));
+            game.playerScore++;
+            playerScoreLbl.setText(formatScore(game.playerScore));
             setGameOver(false);
         } else if (ball.getX() > 121) {
             ball.setX(121);
             ballSpeed.x = -ballSpeed.x;
             Pong.playSound(game.loseSound);
-            game.playerScore++;
-            playerScoreLbl.setText(formatScore(game.playerScore));
+            game.aiScore++;
+            aiScoreLbl.setText(formatScore(game.aiScore));
             setGameOver(true);
         }
     }
