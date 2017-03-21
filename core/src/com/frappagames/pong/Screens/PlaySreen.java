@@ -138,7 +138,7 @@ public class PlaySreen extends GameScreen {
             moveAI(delta);
         } else {
             game.batch.draw(startTxt, 22, 22);
-            if (Gdx.input.justTouched()) {
+            if (Gdx.input.justTouched() || Gdx.input.isKeyJustPressed(Keys.ANY_KEY)) {
                 isPlaying = true;
             }
         }
