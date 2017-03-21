@@ -41,6 +41,8 @@ public class PlaySreen extends GameScreen {
     public PlaySreen(final Pong game, int difficulty) {
         super(game);
         isPlaying = false;
+        game.playerScore = 0;
+        game.aiScore = 0;
 
         switch (difficulty) {
             case 1 :
