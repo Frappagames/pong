@@ -1,5 +1,7 @@
 package com.frappagames.pong.Screens;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -18,6 +20,7 @@ import com.frappagames.pong.Tools.Settings;
 public class OptionsScreen extends GameScreen {
     private final ImageButton onBtn;
     private final ImageButton offBtn;
+    private int currentOption = 1;
 
     public OptionsScreen(final Pong game) {
         super(game);
@@ -37,8 +40,11 @@ public class OptionsScreen extends GameScreen {
         );
         ImageButton backBtn = new ImageButton(
                 new TextureRegionDrawable(game.atlas.findRegion("btnBack")),
+                new TextureRegionDrawable(game.atlas.findRegion("btnBackOver")),
                 new TextureRegionDrawable(game.atlas.findRegion("btnBackOver"))
         );
+        backBtn.setChecked(true);
+
         if (Settings.soundEnabled) {
             onBtn.setChecked(true);
             offBtn.setChecked(false);
@@ -50,23 +56,14 @@ public class OptionsScreen extends GameScreen {
         onBtn.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (!Settings.soundEnabled) {
-                    Settings.setSound(true);
-                    Pong.playSound(game.padSound);
-                }
-                onBtn.setChecked(true);
-                offBtn.setChecked(false);
+            enableSound();
             }
         });
 
         offBtn.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (Settings.soundEnabled) {
-                    Settings.setSound(false);
-                }
-                onBtn.setChecked(false);
-                offBtn.setChecked(true);
+                disableSound();
             }
         });
 
@@ -85,5 +82,40 @@ public class OptionsScreen extends GameScreen {
         menu.add(backBtn).colspan(2).pad(6, 4, 4, 4).row();
         table.add(pongTitle).center().expandY().width(55).padRight(4);
         table.add(menu).expandY().width(55).padLeft(4);
+    }
+
+    private void enableSound() {
+        if (!Settings.soundEnabled) {
+            Settings.setSound(true);
+            Pong.playSound(game.padSound);
+        }
+        onBtn.setChecked(true);
+        offBtn.setChecked(false);
+    }
+
+    private void disableSound() {
+        if (Settings.soundEnabled) {
+            Settings.setSound(false);
+        }
+        onBtn.setChecked(false);
+        offBtn.setChecked(true);
+    }
+
+    @Override
+    public void render(float delta) {
+        super.render(delta);
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE) || Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
+            Pong.playSound(game.padSound);
+            game.setScreen(new MenuScreen(game));
+        }
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
+            enableSound();
+        }
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
+            disableSound();
+        }
     }
 }

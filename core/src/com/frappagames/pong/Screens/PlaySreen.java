@@ -143,6 +143,11 @@ public class PlaySreen extends GameScreen {
             }
         }
 
+        if (Gdx.input.isKeyJustPressed(Keys.ESCAPE)) {
+            Pong.playSound(game.padSound);
+            game.setScreen(new MenuScreen(game));
+        }
+
         game.batch.draw(ball, ball.getX(), ball.getY());
         game.batch.draw(playerPad, playerPad.getX(), playerPad.getY());
         game.batch.draw(aiPad, aiPad.getX(), aiPad.getY());

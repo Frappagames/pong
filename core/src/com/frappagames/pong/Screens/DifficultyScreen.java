@@ -1,6 +1,7 @@
 package com.frappagames.pong.Screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -20,44 +21,54 @@ public class DifficultyScreen extends GameScreen {
     private final ImageButton easyBtn;
     private final ImageButton normalBtn;
     private final ImageButton hardBtn;
+    private final ImageButton backBtn;
+    private int currentOption;
 
     public DifficultyScreen(final Pong game) {
         super(game);
 
+        currentOption = 1;
         pongTitle = new Image(new TextureRegionDrawable(game.atlas.findRegion("pong")));
         easyBtn = new ImageButton(
                 new TextureRegionDrawable(game.atlas.findRegion("btnEasy")),
+                new TextureRegionDrawable(game.atlas.findRegion("btnEasyOver")),
                 new TextureRegionDrawable(game.atlas.findRegion("btnEasyOver"))
         );
         normalBtn = new ImageButton(
                 new TextureRegionDrawable(game.atlas.findRegion("btnNormal")),
+                new TextureRegionDrawable(game.atlas.findRegion("btnNormalOver")),
                 new TextureRegionDrawable(game.atlas.findRegion("btnNormalOver"))
         );
         hardBtn = new ImageButton(
                 new TextureRegionDrawable(game.atlas.findRegion("btnHard")),
+                new TextureRegionDrawable(game.atlas.findRegion("btnHardOver")),
                 new TextureRegionDrawable(game.atlas.findRegion("btnHardOver"))
         );
-        ImageButton backBtn = new ImageButton(
+        backBtn = new ImageButton(
                 new TextureRegionDrawable(game.atlas.findRegion("btnBack")),
+                new TextureRegionDrawable(game.atlas.findRegion("btnBackOver")),
                 new TextureRegionDrawable(game.atlas.findRegion("btnBackOver"))
         );
 
-        easyBtn.addListener(new ChangeListener() {
-            public void changed(ChangeEvent event, Actor actor) {
+        easyBtn.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
                 Pong.playSound(game.padSound);
                 game.setScreen(new PlaySreen(game, 1));
             }
         });
 
-        normalBtn.addListener(new ChangeListener() {
-            public void changed(ChangeEvent event, Actor actor) {
+        normalBtn.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
                 Pong.playSound(game.padSound);
                 game.setScreen(new PlaySreen(game, 2));
             }
         });
 
-        hardBtn.addListener(new ChangeListener() {
-            public void changed(ChangeEvent event, Actor actor) {
+        hardBtn.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
                 Pong.playSound(game.padSound);
                 game.setScreen(new PlaySreen(game, 3));
             }
@@ -83,6 +94,41 @@ public class DifficultyScreen extends GameScreen {
 
     @Override
     public void render(float delta) {
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            Pong.playSound(game.padSound);
+            game.setScreen(new MenuScreen(game));
+        }
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && currentOption > 1) {
+            currentOption--;
+            Pong.playSound(game.padSound);
+        }
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) && currentOption <= 4) {
+            Pong.playSound(game.padSound);
+            currentOption++;
+        }
+
+        easyBtn.setChecked(currentOption == 1);
+        normalBtn.setChecked(currentOption == 2);
+        hardBtn.setChecked(currentOption == 3);
+        backBtn.setChecked(currentOption == 4);
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
+            Pong.playSound(game.padSound);
+            switch (currentOption) {
+                case 1:
+                case 2:
+                case 3:
+                    game.setScreen(new PlaySreen(game, currentOption));
+                    break;
+                case 4:
+                    game.setScreen(new MenuScreen(game));
+                    break;
+            }
+        }
+
         super.render(delta);
     }
 
