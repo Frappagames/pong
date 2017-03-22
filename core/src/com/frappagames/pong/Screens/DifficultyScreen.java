@@ -2,12 +2,10 @@ package com.frappagames.pong.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.frappagames.pong.Pong;
@@ -54,7 +52,7 @@ public class DifficultyScreen extends GameScreen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Pong.playSound(game.padSound);
-                game.setScreen(new PlaySreen(game, 1));
+                game.setScreen(new PlayScreen(game, 1));
             }
         });
 
@@ -62,7 +60,7 @@ public class DifficultyScreen extends GameScreen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Pong.playSound(game.padSound);
-                game.setScreen(new PlaySreen(game, 2));
+                game.setScreen(new PlayScreen(game, 2));
             }
         });
 
@@ -70,7 +68,7 @@ public class DifficultyScreen extends GameScreen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Pong.playSound(game.padSound);
-                game.setScreen(new PlaySreen(game, 3));
+                game.setScreen(new PlayScreen(game, 3));
             }
         });
 
@@ -121,7 +119,7 @@ public class DifficultyScreen extends GameScreen {
                 case 1:
                 case 2:
                 case 3:
-                    game.setScreen(new PlaySreen(game, currentOption));
+                    game.setScreen(new PlayScreen(game, currentOption));
                     break;
                 case 4:
                     game.setScreen(new MenuScreen(game));
