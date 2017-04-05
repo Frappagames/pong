@@ -24,23 +24,23 @@ import com.badlogic.gdx.Input.Keys;
  * <p/>
  * Created by Miridan on 09/03/16.
  */
-public class PlayScreen extends GameScreen {
+class PlayScreen extends GameScreen {
 
     private static final int PLAYER_PAD_SPEED = 60;
-    private float pad_speed;
-    private float max_speed;
-    protected Sprite  ball;
-    protected Sprite  playerPad;
-    protected Sprite  aiPad;
-    protected Sprite  startTxt;
-    protected Vector2 ballSpeed;
-    private   Label   playerScoreLbl;
-    private   Label   aiScoreLbl;
+    private float   pad_speed;
+    private float   max_speed;
+    private Sprite  ball;
+    private Sprite  playerPad;
+    private Sprite  aiPad;
+    private Sprite  startTxt;
+    private Vector2 ballSpeed;
+    private Label   playerScoreLbl;
+    private Label   aiScoreLbl;
     private boolean isPlaying;
-    private float initial_speed;
+    private float   initial_speed;
 
 
-    public PlayScreen(final Pong game, int difficulty) {
+    PlayScreen(final Pong game, int difficulty) {
         super(game);
         isPlaying = false;
         game.playerScore = 0;
@@ -156,7 +156,7 @@ public class PlayScreen extends GameScreen {
         game.batch.end();
     }
 
-    public void moveBall(float delta) {
+    private void moveBall(float delta) {
         ball.setPosition(ball.getX() + (ballSpeed.x * delta), ball.getY() + (ballSpeed.y * delta));
 
         // Test Paddles collisions : Left collision
