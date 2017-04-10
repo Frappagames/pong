@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.frappagames.pong.Pong;
 
 /**
@@ -17,17 +18,16 @@ import com.frappagames.pong.Pong;
  */
 public class SplashScreen implements Screen {
     private final Pong game;
-
     private OrthographicCamera camera;
-
     private Texture splashTexture;
     private Stage stage;
+    private long startTime;
 
-    public SplashScreen(Pong gameApp) {
-        this.game = gameApp;
-
+    public SplashScreen(Pong gameObject) {
+        this.game = gameObject;
         stage = new Stage();
         splashTexture = new Texture(Gdx.files.internal("SplashScreen.png"));
+        startTime = TimeUtils.millis();
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Pong.WIDTH, Pong.HEIGHT);
@@ -41,13 +41,8 @@ public class SplashScreen implements Screen {
                 Actions.alpha(0),
                 Actions.fadeIn(0.5f),
                 Actions.delay(1),
-                Actions.fadeOut(0.5f),
-                Actions.run(new Runnable() {
-                    @Override
-                    public void run() {
-                        game.setScreen(new MenuScreen(game));
-                    }
-                })));
+                Actions.fadeOut(0.5f)
+        ));
     }
 
     @Override
@@ -64,6 +59,10 @@ public class SplashScreen implements Screen {
 
         stage.act();
         stage.draw();
+
+        if (TimeUtils.millis() > (startTime + 2000)) {
+            game.setScreen(new MenuScreen(game));
+        }
     }
 
     @Override
