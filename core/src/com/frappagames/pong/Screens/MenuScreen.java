@@ -91,7 +91,7 @@ public class MenuScreen extends GameScreen {
             Pong.playSound(game.padSound);
         }
 
-        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) && currentOption <= 3) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) && currentOption < 3) {
             Pong.playSound(game.padSound);
             currentOption++;
         }

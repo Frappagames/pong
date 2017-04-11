@@ -103,7 +103,7 @@ public class DifficultyScreen extends GameScreen {
             Pong.playSound(game.padSound);
         }
 
-        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) && currentOption <= 4) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) && currentOption < 4) {
             Pong.playSound(game.padSound);
             currentOption++;
         }
