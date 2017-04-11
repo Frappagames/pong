@@ -17,6 +17,7 @@ import com.frappagames.pong.Pong;
  * Created by Jérémy MOREAU on 14/08/15.
  */
 public class SplashScreen implements Screen {
+    private static final int SPLASHSCREEN_DURATION = 2000;
     private final Pong game;
     private OrthographicCamera camera;
     private Texture splashTexture;
@@ -60,7 +61,7 @@ public class SplashScreen implements Screen {
         stage.act();
         stage.draw();
 
-        if (TimeUtils.millis() > (startTime + 2000)) {
+        if (TimeUtils.millis() > (startTime + SPLASHSCREEN_DURATION)) {
             game.setScreen(new MenuScreen(game));
         }
     }
